@@ -1,0 +1,38 @@
+
+bool isPossible(int a, int b, int c)
+{
+    if (a + b <= c || b + c <= a || a + c <= b)
+    {
+        return false;
+    }
+    return true;
+}
+int main()
+{
+    int a, b, c;
+    cin >> a >> b >> c;
+    unordered_set<int> st;
+    st.insert(a);
+    st.insert(b);
+    st.insert(c);
+    if (!isPossible(a, b, c) || *st.begin() <= 0)
+    {
+        cout << "triangle not possible" << endl;
+    }
+    else
+    {
+        if (st.size() == 3)
+        {
+            cout << "triangle is scalene" << endl;
+        }
+        else if (st.size() == 2)
+        {
+            cout << "triangle is isoceles" << endl;
+        }
+        else
+        {
+            cout << "triangle is equilateral" << endl;
+        }
+    }
+    return 0;
+}
